@@ -26,7 +26,7 @@ String filesize(dynamic size, [int round = 2]) {
     return '${(_size / divider).toStringAsFixed(round)} KB';
   }
 
-  if (_size < divider * divider * divider && _size % divider == 0) {
+  if (_size < divider * divider * divider && _size % (divider * divider) == 0) {
     return '${(_size / (divider * divider)).toStringAsFixed(0)} MB';
   }
 
@@ -34,7 +34,8 @@ String filesize(dynamic size, [int round = 2]) {
     return '${(_size / divider / divider).toStringAsFixed(round)} MB';
   }
 
-  if (_size < divider * divider * divider * divider && _size % divider == 0) {
+  if (_size < divider * divider * divider * divider &&
+      _size % (divider * divider * divider) == 0) {
     return '${(_size / (divider * divider * divider)).toStringAsFixed(0)} GB';
   }
 
@@ -43,7 +44,7 @@ String filesize(dynamic size, [int round = 2]) {
   }
 
   if (_size < divider * divider * divider * divider * divider &&
-      _size % divider == 0) {
+      _size % (divider / divider / divider / divider) == 0) {
     num r = _size / divider / divider / divider / divider;
     return '${r.toStringAsFixed(0)} TB';
   }
@@ -54,7 +55,7 @@ String filesize(dynamic size, [int round = 2]) {
   }
 
   if (_size < divider * divider * divider * divider * divider * divider &&
-      _size % divider == 0) {
+      _size % (divider / divider / divider / divider / divider) == 0) {
     num r = _size / divider / divider / divider / divider / divider;
     return '${r.toStringAsFixed(0)} PB';
   } else {
